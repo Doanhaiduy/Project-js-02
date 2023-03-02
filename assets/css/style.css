@@ -1,0 +1,95 @@
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+    font-family: "Poppins", sans-serif;
+    background-color: #eee;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 80px;
+}
+
+.item {
+    color: #aaa;
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    border-radius: 50%;
+    font-size: 1.4rem;
+    border: 3px solid #888;
+    line-height: 1.4;
+    position: relative;
+    z-index: 1;
+    transition: 0.5s ease;
+}
+
+.item.active {
+    border-color: #2cccff;
+}
+
+.item::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 82.5px;
+    background-color: #888;
+    height: 5px;
+    right: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.item::after {
+    transition: 0.5s ease;
+    content: "";
+    display: block;
+    position: absolute;
+    width: 0;
+    background-color: #2cccff;
+    height: 5px;
+    left: -276%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.item.active::after {
+    width: 83px;
+}
+
+.item:first-child::after,
+.item:first-child::before {
+    background-color: transparent;
+}
+
+.group-btn {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn {
+    padding: 8px 30px;
+    background-color: #2cccff;
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+    user-select: none;
+}
+
+.btn.disable {
+    background-color: #ccc;
+    cursor: no-drop;
+}
